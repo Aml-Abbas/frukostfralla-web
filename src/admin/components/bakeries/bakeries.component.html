@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<div class="container">
+
+  <mat-card>
+
+    <mat-list>
+      <div *ngIf="(bakeries$ | async) as bakeries">
+
+        <mat-list-item mat-ripple
+                       *ngFor="let bakery of bakeries; index as k;"
+                       [routerLink]="['/admin/manage-bakery', bakery.id]">
+          <img matListAvatar class="list-img">
+          <h3 matLine> {{bakery.id}} </h3>
+          <p matLine> {{bakery.name}} </p>
+          <p matLine> {{bakery.email}} </p>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </mat-card>
+
+
+  <button mat-fab matSuffix class="fab" routerLink="/admin/create-bakery">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

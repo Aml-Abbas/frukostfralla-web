@@ -1,0 +1,10 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-icon class="back-icon" (click)="navigateBack()">arrow_back</mat-icon>
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<div class="container">
+  <div *ngIf="(order$ | async) as order">
+    <app-order-card [order]="order"></app-order-card>
+  </div>
+</div>

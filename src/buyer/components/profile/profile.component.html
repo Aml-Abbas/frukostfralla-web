@@ -1,0 +1,97 @@
+<mat-toolbar class="toolbar" color="primary">
+  <span class="spacer"></span>
+  <span>{{ title }}</span>
+  <span class="toolbar-spacer"></span>
+  <button routerLink="../profile-editor"
+          mat-icon-button>
+    <mat-icon>edit</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container">
+  <label class="image-chooser" *ngIf="(userObservable$| async) as user">
+    <input id="image-input" type="file" accept="image/*" (change)="chooseImage($event)">
+    <img class="profile-photo" alt="profile photo"
+         src="{{ user ?
+          user ?.profilePictureUrl ?
+           user ?.profilePictureUrl : 'assets/img/profile-photo-placeholder.png'
+           : 'assets/img/profile-photo-placeholder.png'}}">
+  </label>
+
+  <mat-card *ngIf="(userObservable$| async) as user" style="margin:16px 0 5em 0;">
+    <h1 style="margin-top: 1em" routerLink="/buyer/profile-editor" matRipple>
+      {{user ? user.name : ''}}
+    </h1>
+
+    <mat-list role="list">
+      <mat-list-item mat-ripple role="listitem"
+                     routerLink="/buyer/profile-editor"
+                     matRipple>
+        <h3 matLine>
+          {{user ? user.email : ''}}
+        </h3>
+        <mat-icon>email</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item>
+        <h3 matLine>Slå på påminnelse för att beställa!</h3>
+        <mat-slide-toggle [checked]="reminder" (change)="reminderChange($event)"></mat-slide-toggle>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem" routerLink="/buyer/profile-editor">
+        <h3 matLine>
+          {{user ? user.address : ''}}
+        </h3>
+        <p matLine>{{user.city}}</p>
+        <mat-icon>address</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem" routerLink="../order-history">
+        <h3 matLine>
+          Beställningar
+        </h3>
+        <mat-icon>list_alt</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+
+      <mat-list-item mat-ripple *ngIf="(associatedSeller$ | async) as seller" role="listitem" routerLink="../map">
+        <h3 matLine>{{seller ? seller.name: 'Välj seller'}}</h3>
+        <h2 matLine>{{seller ? seller.address: ''}}</h2>
+        <mat-icon>storefront</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem"
+                     routerLink="/buyer/profile-editor"
+                     matRipple>
+        <h3 matLine>{{user ? user.mobilenbr : ''}}</h3>
+        <mat-icon>phone</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem"
+                     matRipple
+                     routerLink="/buyer/update-password">
+        <h3 matLine>ÄNDRA LÖSENORD</h3>
+        <mat-icon>settings</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem"
+                     matRipple
+      >
+        <h3 matLine class="logout" (click)="onLogout()">LOGGA UT</h3>
+        <mat-icon color="warn">exit_to_app</mat-icon>
+      </mat-list-item>
+    </mat-list>
+
+
+  </mat-card>
+
+
+
+</div>

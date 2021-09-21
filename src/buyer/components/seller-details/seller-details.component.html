@@ -1,0 +1,42 @@
+<mat-toolbar *ngIf="(userObservable$ | async) as user" class="toolbar" color="primary">
+  <mat-icon mat-ripple class="back-icon" (click)="navigateBack()">
+    arrow_back
+  </mat-icon>
+  <span>{{ user.name }} detaljer</span>
+</mat-toolbar>
+<div class="container" *ngIf="(userObservable$ | async) as user">
+
+  <label class="image-chooser">
+    <input id="image-input" type="file" accept="image/*">
+    <img class="profile-photo" alt="profile photo"
+         src="{{user.profilePictureUrl ?
+         user?.profilePictureUrl : 'assets/img/profile-photo-placeholder.png'
+           }}">
+  </label>
+
+
+  <mat-card style="margin:16px 0 5em 0; display: grid;">
+    <mat-list>
+      <mat-list-item mat-ripple role="listitem" [routerLink]="['/buyer/items']">
+        <h3 matLine>{{user.name}} frallor</h3>
+        <mat-icon>store_mall_directory</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item mat-ripple role="listitem" routerLink="./seller/choose-days">
+      </mat-list-item>
+
+    </mat-list>
+
+    <h3 matLine>Säljarens dagar</h3>
+    <ejs-calendar matLine [(value)]="dateValue" (renderDayCell)="disableDate($event)"></ejs-calendar>
+
+    <button (click)="associateSeller(user.id)"
+      mat-raised-button color="accent" style="margin-top: 16px">
+      Välj denna säljare som favorit
+    </button>
+
+  </mat-card>
+
+
+</div>

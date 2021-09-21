@@ -1,0 +1,139 @@
+@import '../node_modules/@syncfusion/ej2-base/styles/material.scss';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.scss';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.scss';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.scss';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.scss';
+@import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.scss';
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$frukostbulle-primary: mat-palette($mat-deep-purple);
+$frukostbulle-primary-dark: mat-palette($mat-deep-purple, 900);
+$frukostbulle-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$frukostbulle-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frukostbulle-theme: mat-light-theme(
+  (
+    color: (
+      primary: $frukostbulle-primary,
+      primary-dark: $frukostbulle-primary-dark,
+      accent: $frukostbulle-accent,
+      warn: $frukostbulle-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each components used in your app.
+// Alternatively, you can import and @include the theme mixins for each components
+// that you are using.
+@include angular-material-theme($frukostbulle-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: mat-color($frukostbulle-primary);
+}
+
+.back-icon {
+  margin-right: 16px;
+  align-self: center;
+  clip-path: circle();
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-stepper-vertical {
+  border-radius: 8px;
+}
+
+.container {
+  padding: 8px 8px 20% 8px;
+  display: grid;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-gap: 1em;
+  padding: 8px 8px 20% 8px;
+  align-items: center;
+  justify-items: center;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+.form-container {
+  display: grid;
+  grid-gap: 1em;
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.landing-item {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.fab {
+  position: fixed;
+  bottom: 4em;
+  right: 0;
+  margin-right: 1em;
+  justify-self: end;
+  align-self: end;
+  color: white;
+  font-size: medium;
+}
+
+.background-warn {
+  background-color: mat-color($frukostbulle-warn);
+}
+.mat-list-item {
+  cursor: default;
+}
+@media (min-width: 900px) {
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    padding: 0 25% 0 25% !important;
+  }
+
+  .container {
+    padding: 16px 25% 0 25%;
+  }
+  .grid-container {
+    padding: 0 25% 20% 25%;
+  }
+
+  .form-container {
+    padding: 0 5em 0 5em;
+  }
+
+}

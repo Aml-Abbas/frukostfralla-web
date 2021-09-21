@@ -1,0 +1,19 @@
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: white;
+}
+
+.grid-img {
+  object-fit: scale-down;
+  height: 100px;
+}
+
+
+@media (min-width: 900px) {
+  .fab {
+    right: 25%;
+  }
+
+}

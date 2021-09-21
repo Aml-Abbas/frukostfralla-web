@@ -1,0 +1,39 @@
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.grid-container {
+  .grid-item {
+    mat-card-title, mat-card-subtitle {
+      cursor: default;
+    }
+    .grid-img {
+      object-fit: scale-down;
+      height: 100px;
+    }
+  }
+}
+
+mat-card:focus {
+  outline: 0;
+}
+
+.fab {
+  position: fixed;
+  bottom: 5em;
+  right: 0;
+  margin-right: 1em;
+  justify-self: end;
+  align-self: end;
+  color: white;
+  font-size: medium;
+}
+
+@media (min-width: 900px) {
+  .fab {
+    right: 25%;
+  }
+
+}

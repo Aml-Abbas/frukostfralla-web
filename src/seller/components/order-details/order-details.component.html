@@ -1,0 +1,11 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-icon class="back-icon" (click)="navigateBack()">arrow_back</mat-icon>
+  <span>Beställningsdetaljer</span>
+</mat-toolbar>
+
+<div class="container">
+
+  <div *ngIf="(order$ | async) as order">
+    <app-order-details-card [order]="order"></app-order-details-card>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-icon class="back-icon" (click)="onCancel()">arrow_back</mat-icon>
+  <span>{{ (itemObservable$ | async) ? 'Redigera bulle' : 'Ny bulle' }}</span>
+  <span class="toolbar-spacer"></span>
+  <mat-icon *ngIf="!!(itemObservable$ | async)" (click)="onDelete()">delete</mat-icon>
+</mat-toolbar>
+
+<div class="container">
+
+  <mat-card>
+    <label class="image-chooser">
+      <input id="image-input" type="file" accept="image/*" (change)="chooseImage($event)">
+      <img alt="product image" src="{{this.imageSrc}}">
+    </label>
+
+    <div class="form-container">
+      <mat-form-field hintLabel="Vad heter frallan?" appearance="fill">
+        <mat-label>Namn</mat-label>
+        <input matInput placeholder="Ex. kaffebulle"
+               [(ngModel)]="name">
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Hur mycket vill du sälja den för?" appearance="fill">
+        <mat-label>Pris</mat-label>
+        <input matInput type="number" placeholder="Ex. 10" [(ngModel)]="price" class="right-align">
+        <span matSuffix>kr</span>
+      </mat-form-field>
+    </div>
+
+    <div class="buttons-container">
+
+      <button routerLinkActive="active" mat-button class="text-button"
+              (click)="onCancel()">
+        AVBRYT
+      </button>
+      <button *ngIf="!(itemObservable$ | async)"
+              mat-raised-button color="accent" (click)="onSave()">
+        LÄGG TILL
+      </button>
+      <button *ngIf="!!(itemObservable$ | async)"
+              mat-raised-button color="accent" (click)="onUpdate()">
+        SPARA
+      </button>
+    </div>
+
+  </mat-card>
+
+</div>

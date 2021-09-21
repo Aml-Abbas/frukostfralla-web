@@ -1,0 +1,53 @@
+@import "~@angular/material/theming";
+$frukostbulle-primary: mat-palette($mat-deep-purple);
+$frukostbulle-primary-dark: mat-palette($mat-deep-purple, 900);
+$frukostbulle-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$frukostbulle-warn: mat-palette($mat-red);
+
+.image-chooser {
+  display: grid;
+  padding: 0;
+  margin: 0;
+
+  #image-input {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+
+  .profile-photo {
+    object-fit: cover;
+    justify-self: center;
+    padding: 0;
+    margin: 0;
+    height: 300px;
+    width: 300px;
+    clip-path: circle(50% at 50% 50%);
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.right-align {
+  -moz-appearance: textfield;
+}
+
+.text-button {
+  width: 100%;
+  text-align: center;
+  margin: 16px 0 0 0;
+}
+
+.logout {
+  color: mat-color($frukostbulle-warn);
+}

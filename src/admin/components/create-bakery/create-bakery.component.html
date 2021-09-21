@@ -1,0 +1,55 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-icon mat-ripple
+            class="back-icon"
+            (click)="navigateBack()">
+    arrow_back
+  </mat-icon>
+  <span>{{ title }}</span>
+</mat-toolbar>
+
+<div class="container">
+  <div class="form-container">
+    <mat-card>
+      <mat-form-field appearance="fill">
+        <mat-label>Epost</mat-label>
+        <input matInput required [formControl]="emailControl" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Namn</mat-label>
+        <input matInput required [formControl]="nameControl">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobilnummer</mat-label>
+        <input matInput required [formControl]="mobileControl">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gatuadress</mat-label>
+        <input matInput required [formControl]="streetControl">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ort</mat-label>
+        <input matInput required [formControl]="cityControl">
+      </mat-form-field>
+
+      <div class="buttons-container">
+        <button mat-stroked-button style="margin-top: 16px"
+                (click)="navigateBack()">
+          AVBRYT
+        </button>
+        <button mat-raised-button color="accent" style="margin-top: 16px"
+                (click)="onCreateBakery()">
+          SKAPA
+        </button>
+
+
+      </div>
+
+    </mat-card>
+
+  </div>
+
+</div>

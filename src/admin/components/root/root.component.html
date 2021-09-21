@@ -1,0 +1,41 @@
+<router-outlet #outlet="outlet"></router-outlet>
+
+<section class="nav-container">
+  <div class="bottom-nav-bar">
+    <a>
+      <mat-icon
+        matRipple
+        class="nav-icon hover-effect"
+        aria-hidden="false"
+        routerLinkActive="active"
+        routerLink="sellers-and-buyers"
+      >
+        group
+      </mat-icon>
+    </a>
+    <a>
+      <mat-icon
+        matRipple
+        class="nav-icon hover-effect"
+        aria-hidden="false"
+        routerLink="bakeries"
+        routerLinkActive="active"
+      >
+        store
+      </mat-icon>
+    </a>
+
+    <a>
+      <mat-icon
+        matRipple
+        class="nav-icon hover-effect"
+        aria-hidden="false"
+        routerLink="manage-account"
+        routerLinkActive="active"
+      >
+        settings
+      </mat-icon>
+    </a>
+
+  </div>
+</section>

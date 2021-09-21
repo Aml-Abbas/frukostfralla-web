@@ -1,0 +1,56 @@
+<mat-tab-group mat-stretch-tabs color="primary" backgroundColor="primary">
+  <mat-tab label="SÄLJARE">
+    <div class="container">
+      <mat-card>
+
+        <mat-list>
+          <div *ngIf="(sellers$ | async) as sellers">
+
+            <mat-list-item mat-ripple
+                           *ngFor="let seller of sellers; index as k;"
+                           [routerLink]="['/admin/manage-seller', seller.id]">
+              <img matListAvatar class="list-img">
+              <h3 matLine> {{seller.id}} </h3>
+              <p matLine> {{seller.name}} </p>
+              <p matLine> {{seller.email}} </p>
+
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+          </div>
+        </mat-list>
+      </mat-card>
+
+    </div>
+  </mat-tab>
+
+  <mat-tab label="KÖPARE">
+    <div class="container">
+      <mat-card>
+
+      <mat-list>
+
+        <div *ngIf="(buyers$ | async) as buyers">
+
+          <mat-list-item mat-ripple
+                         *ngFor="let buyer of buyers; index as k;"
+                         [routerLink]="['/admin/manage-buyer', buyer.id]">
+            <img matListAvatar class="list-img">
+            <h3 matLine> {{buyer.id}} </h3>
+            <p matLine> {{buyer.name}} </p>
+            <p matLine> {{buyer.email}} </p>
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list>
+      </mat-card>
+    </div>
+  </mat-tab>
+
+
+</mat-tab-group>
+
+<div class="container">
+
+</div>
